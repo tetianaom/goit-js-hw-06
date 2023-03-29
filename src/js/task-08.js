@@ -6,12 +6,12 @@ const handleSubmit = (event) => {
     elements: { email, password },
   } = event.currentTarget;
 
-  if (email.value === "" || password.value === "") {
-    alert("Please fill in all the fields!");
+  if (email.value === "" || password.value.trim() === "") {
+    return alert("Please fill in all the fields!");
   }
   console.log({
     email: email.value,
-    password: password.value,
+    password: password.value.trim(),
   });
   event.currentTarget.reset();
 };

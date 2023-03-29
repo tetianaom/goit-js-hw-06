@@ -8,6 +8,7 @@ const quantity = document.querySelector("input");
 const createButton = document.querySelector("[data-create]");
 const destroyButton = document.querySelector("[data-destroy]");
 const div = document.querySelector(".boxes");
+let step = 30;
 
 const onClick = (evn) => {
   const targetDataset = evn.currentTarget.dataset;
@@ -20,14 +21,14 @@ const onClick = (evn) => {
 
 function createBoxes(amount) {
   let markup = "";
-  let step = 30;
 
   for (let i = 1; i <= amount; i += 1) {
     let colorBox = getRandomHexColor();
     markup += `<div class="js-item" style="width:${step}px;height:${step}px;background-color:${colorBox}"></div>`;
     step += 10;
   }
-  boxes.innerHTML = markup;
+
+  boxes.insertAdjacentHTML("beforeend", markup);
 }
 
 function destroyBoxes() {
